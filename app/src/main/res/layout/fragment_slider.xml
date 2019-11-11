@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dim_22dp">
+
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/carouselView"
+            android:layout_width="@dimen/dim_250dp"
+            android:layout_height="@dimen/dim_250dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dim_8dp"
+            android:layout_marginTop="@dimen/dim_72dp"
+            android:layout_marginEnd="@dimen/dim_8dp"
+            android:layout_marginBottom="@dimen/dim_22dp"
+            app:animateOnBoundary="false"
+            app:autoPlay="true"
+            app:fillColor="@color/colorPrimary"
+            app:indicatorMarginVertical="-1dp"
+            app:pageTransformer="zoom"
+            app:radius="@dimen/dim_6dp"
+            app:slideInterval="2000"
+            app:strokeColor="#A9A9A9	"
+            app:strokeWidth="1dp" />
+
+        <Button
+            android:id="@+id/slider_fragment_btn_skip"
+            style="@style/SetUpAndSliderButtons"
+            android:text="@string/splash_fragment_skip" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

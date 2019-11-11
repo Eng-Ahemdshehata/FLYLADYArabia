@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    
+    <item android:title="@string/about_application" >
+        <menu>
+            <item
+                android:id="@+id/nav_about_app"
+                android:icon="@drawable/ic_about_app"
+                android:title="@string/about_app" />
+
+            <item
+                android:id="@+id/nav_follow_us"
+                android:icon="@drawable/ic_facebook"
+                android:title="@string/menu_send" />
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_share" />
+
+            <item
+
+                android:id="@+id/nav_star"
+                android:icon="@drawable/ic_star"
+                android:title="@string/rate_application" />
+
+
+            <item
+                android:icon="@drawable/ic_version_name"
+                android:id="@+id/nav_version_name"
+                android:title="@string/version_name">
+
+            </item>
+        </menu>
+    </item>
+
+    <item android:title="@string/about_programmer">
+        <menu>
+            <item
+                android:id="@+id/nav_about_me"
+                android:icon="@drawable/ic_about_me"
+                android:title="@string/who_i_am" />
+
+        </menu>
+    </item>
+
+
+
+</menu>

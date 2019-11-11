@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.SetUpStep3Fragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextStepsTheme"
+            android:text="@string/last_step" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginStart="@dimen/dim_6dp"
+                android:layout_width="@dimen/dim_80dp"
+                android:layout_height="@dimen/dim_80dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_timer_set_up" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="تحديد وقت التنبية للمهمه التاليه \n
+ملحوظة :
+\n
+يمكـن تغير ذلك فيما بعد ..
+"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/txt_14sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/set_up_3_fragment_btn_select"
+            style="@style/SetUpAndSliderButtons"
+            android:text="@string/select_time"
+            android:layout_marginBottom="@dimen/dim_40dp"
+            />
+
+    </LinearLayout>
+
+
+</FrameLayout>

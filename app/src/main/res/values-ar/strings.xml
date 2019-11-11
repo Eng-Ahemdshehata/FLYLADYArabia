@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">فلاي ليدي ارابيا</string>
+    <string name="action_settings">الأعدادات</string>
+    <string name="menu_home">الرئيسيه</string>
+    <string name="menu_send">تابعنا عبر فيسبوك</string>
+    <string name="menu_share">مشاركه</string>
+    <string name="menu_slideshow">العرض</string>
+    <string name="menu_tools">الأدوات</string>
+    <string name="menu_gallery">المعرض</string>
+    <string name="title_chart">احصائيات</string>
+    <string name="title_home">مقالات</string>
+    <string name="title_notifications">الأشعارات</string>
+    <string name="title_settings">اعدادات</string>
+    <string name="about_programmer">حول المطور</string>
+    <string name="about_application">حول التطبيق</string>
+    <string name="who_i_am">من انا</string>
+    <string name="rate_application">قيم التطبيق</string>
+    <string name="notification_sound">صوت الاشعارات</string>
+    <string name="summary_off">مْعطله</string>
+    <string name="summary_on">مْفعله</string>
+    <string name="title_app_settings">اعدادات البرنامج</string>
+    <string name="title_user_settings">اعدادات المستخدم</string>
+    <string name="language_settings">اللغة</string>
+    <string name="set_alert_time">تغير وقت التنبية</string>
+    <string name="select_time">تحديد الوقت</string>
+    <string name="display_message">التنبيه الساعه</string>
+    <string name="splash_fragment_skip">تخطــي</string>
+    <string name="last_step">الخطوة الأخيرة</string>
+    <string name="first_step">الخطوة الأولي</string>
+    <string name="user_name">الأسم</string>
+    <string name="second_step">الخطوة الثانية</string>
+    <string name="profile_pic">الصورة</string>
+    <string name="soon_statistics_for_user">قريبــا في النسخـة الجديدة اضافـة  احصائـيات
+        للمستخدم لمعرفة أداءة</string>
+    <string name="alert_dialog_title">هل انتهت المهمة ؟</string>
+    <string name="alert_dialog_cb_text">لا تظهر الرساله تلك مرة اخري</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="set_up_settings">تهيئة اعدادات المستخدم</string>
+    <string name="no_mission_found">لا يوجد مهمات</string>
+    <string name="choose_icon">اختاري صورة</string>
+
+    <string name="about_me_des">م . أحمد حمدي شحاتة\n
+طالب بكليه الهندسة جامعة المنصورة\n
+قسم حاسبات وتحكم\n
+الفرقة التانية\n
+
+</string>
+
+    <string name="about_app">عن البرنامج</string>
+    <string name="version_name">الأصدار : %1$s</string>
+
+    <string name="cant_change">لا يمكن تغير ذلك في الوقت الحالي</string>
+    <string name="summery_date">يمكن تغير ذلك مره واحدة يوميـا</string>
+    <string name="more_detials">اضغطي لمزيد من التفاصيل</string>
+    <string name="next_btn">التالي</string>
+    <string name="rooms">الغرف</string>
+    <string name="another_articles">مقالات اخري</string>
+    <string name="delete_all">حذف الكل</string>
+
+    <string name="slider">حافظي علي نظافه منزلـك</string>
+
+
+
+</resources>

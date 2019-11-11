@@ -1,0 +1,86 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/cairo_regular</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:preferenceStyle">@style/AppPreference</item>
+        <item name="android:colorBackground">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+    <style name="AppThemeSplash" parent="AppTheme">
+        <!-- Customize your theme here. -->
+
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+
+    </style>
+
+
+    <style name="AppPreference">
+        <item name="android:textSize">@dimen/app_preference_txt_size</item>
+    </style>
+
+
+    <style name="AppTheme.WhiteAccent">
+        <item name="colorAccent">@color/colorPrimary</item> <!-- Whatever color you want-->
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CardViewTheme" parent="CardView.Light">
+        <item name="android:layout_margin">12dp</item>
+        <item name="android:padding">20dp</item>
+        <item name="cardUseCompatPadding">true</item>
+
+    </style>
+
+    <style name="TextStepsTheme">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">6dp</item>
+
+    </style>
+
+    <style name="MenuItems" parent="AppTheme">
+        <item name="android:textSize">@dimen/menu_items_txt_size</item>
+    </style>
+    <style name="TextNotificationTheme" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">@dimen/txt_14sp</item>
+    </style>
+
+    <style name="SetUpAndSliderButtons">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">28dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:background">@drawable/background_btn</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+
+    </style>
+
+
+</resources>

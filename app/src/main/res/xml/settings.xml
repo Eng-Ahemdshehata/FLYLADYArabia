@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory>
+
+
+        <Preference
+
+            android:key="user"
+            android:persistent="false"
+            android:selectable="false"
+            android:title="@string/title_user_settings" />
+
+        <EditTextPreference
+            android:icon="@drawable/ic_user_name"
+            android:inputType="textPersonName"
+            app:singleLineTitle="true"
+            android:key="user_name"
+            android:title="@string/user_name" />
+
+        <Preference
+            android:icon="@drawable/ic_face"
+            android:key="icon"
+            android:title="@string/profile_pic" />
+
+        <Preference
+            android:summary="@string/summery_date"
+            android:icon="@drawable/ic_timer"
+            android:key="time"
+            android:title="@string/set_alert_time" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <Preference
+            android:key="app"
+            android:persistent="false"
+            android:selectable="false"
+            android:title="@string/title_app_settings"
+
+            />
+        <ListPreference
+            android:defaultValue="@string/ar_value"
+            android:entries="@array/language_list"
+            android:entryValues="@array/language_list_values"
+            android:icon="@drawable/ic_language"
+            android:key="@string/lang_key"
+            android:title="@string/language_settings"
+
+            />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:icon="@drawable/ic_notifications"
+            android:key="@string/notification_key"
+            android:summaryOff="@string/summary_off"
+            android:summaryOn="@string/summary_on"
+            android:title="@string/title_notifications" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:icon="@drawable/ic_notifications_sound"
+            android:key="@string/notification_sound_key"
+            android:summaryOff="@string/summary_off"
+            android:summaryOn="@string/summary_on"
+            android:title="@string/notification_sound" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

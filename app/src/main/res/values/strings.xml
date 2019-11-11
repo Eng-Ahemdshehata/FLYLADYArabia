@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">FLY LADY Arabia</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Follow us on Facebook</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notification</string>
+    <string name="title_activity_splash" translatable="false">SplashActivity</string>
+    <string name="title_activity_slider" translatable="false">SliderActivity</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_chart">Chart</string>
+    <string name="about_application">About application</string>
+    <string name="about_programmer">About programmer</string>
+    <string name="who_i_am">who I am</string>
+    <string name="rate_application">Rate application</string>
+    <string name="notification_sound">Notification sound</string>
+    <string name="summary_on">On</string>
+    <string name="summary_off">Off</string>
+    <string name="title_app_settings">Application Settings</string>
+    <string name="title_user_settings">User Settings</string>
+    <string name="notification_key" translatable="false">notification</string>
+    <string name="notification_sound_key" translatable="false">notification_sound</string>
+    <string name="language_settings">Language</string>
+    <string name="en_lang" translatable="false">English</string>
+    <string name="ar_lang" translatable="false">العربية</string>
+    <string name="lang_key" translatable="false">lang</string>
+    <string name="en_value" translatable="false">en</string>
+    <string name="ar_value" translatable="false">ar</string>
+    <string name="set_alert_time">Set alert time</string>
+    <string name="select_time">Select Time</string>
+    <string name="display_message">The time is</string>
+    <string name="sleeping_room" translatable="false">غرفة النوم الرئيسية</string>
+    <string name="sleeping_room_des" translatable="false">
+        /n : قومى بتقسيم التنظيف الى مهمات تنظيف عميق وفرز
+        /nالفرز:
+        /nالادراج
+        /n الاكسسوارات
+        /nالملابس
+        /nالمكياج
+
+    </string>
+    <string name="splash_fragment_skip">Skip</string>
+    <string name="title_activity_main" translatable="false">Notification</string>
+
+    <string name="last_step">Last Step</string>
+    <string name="first_step">First Step</string>
+    <string name="user_name">User Name</string>
+    <string name="second_step">Second Step</string>
+    <string name="profile_pic">Profile Picture</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="soon_statistics_for_user">Soon !   In new version of the app   There will be a statistics for user</string>
+
+    <string name="alert_dialog_title">Do you complete the mission ?</string>
+
+    <string name="alert_dialog_cb_text">Don\'t show this message again</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="set_up_settings">Set up user settings</string>
+    <string name="no_mission_found">No missions found</string>
+    <string name="choose_icon">Choose an icon</string>
+
+
+    <string name="about_me_des">Eng | Ahmed Hamdy Shehata
+\nStudent at Faculty of engineering Mansoura university
+\nDapart. CSED
+\nSecond year
+</string>
+
+    <string name="about_app">About application</string>
+    <string name="version_name">Version : %1$s</string>
+
+    <string name="cant_change">You can\'t change this now</string>
+    <string name="summery_date">You Can change this at least once a day</string>
+    <string name="more_detials">اضغطي لمزيد من التفاصيل</string>
+
+    <string name="next_btn">Next</string>
+    <string name="rooms">Rooms</string>
+    <string name="another_articles">Another articles</string>
+    <string name="delete_all">Delete all</string>
+
+    <string name="slider">Keep your house clean</string>
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="language_list">
+        <item >@string/en_lang</item>
+        <item >@string/ar_lang</item>
+    </array>
+
+
+    <array name="language_list_values">
+        <item >@string/en_value</item>
+        <item >@string/ar_value</item>
+    </array>
+
+</resources>
