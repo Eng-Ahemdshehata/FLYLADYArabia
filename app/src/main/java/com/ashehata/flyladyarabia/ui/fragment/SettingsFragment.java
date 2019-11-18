@@ -43,12 +43,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     int min ;
 
 
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
         setPreferencesFromResource(R.xml.settings, rootKey);
-
 
         try {
 
@@ -158,14 +156,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
 
 
-
-
-
         }catch (Exception e){
 
         }
-
-
     }
 
     private void createAlertDialogIcon() {
@@ -256,10 +249,5 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         listIcons.add(R.drawable.ic_face_5);
         listIcons.add(R.drawable.ic_face_6);
 
-
-
-
     }
-
-
 }

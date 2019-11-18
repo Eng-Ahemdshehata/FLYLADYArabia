@@ -39,7 +39,6 @@ public class MainFragment extends Fragment implements RoomAdapter.ListItemClickL
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main,container,false);
-
         // Objects reference
         progressBar = view.findViewById(R.id.main_fragment_pb_indicator);
         recyclerView = view.findViewById(R.id.main_fragment_rv_display);
@@ -153,8 +152,6 @@ public class MainFragment extends Fragment implements RoomAdapter.ListItemClickL
             });
 
         }
-
-
     }
 
     @Override

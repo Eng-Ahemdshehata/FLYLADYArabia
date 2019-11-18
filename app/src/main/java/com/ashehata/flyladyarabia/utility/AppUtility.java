@@ -7,19 +7,25 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.ashehata.flyladyarabia.BuildConfig;
 import com.ashehata.flyladyarabia.R;
 import com.ashehata.flyladyarabia.data.sharedpreference.AppPreference;
 import com.ashehata.flyladyarabia.ui.activity.HomeActivity;
+import com.ashehata.flyladyarabia.ui.activity.SplashActivity;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -30,7 +36,6 @@ public class AppUtility {
     private static Toast toast;
 
     public static void setLanguage(Context context){
-
         String lang = AppPreference.readString(context, AppPreference.LANGUAGE_KEY,AppPreference.DEFAULT_LANGUAGE_KEY);
         //Toast.makeText(context, lang, Toast.LENGTH_SHORT).show();
 
@@ -41,7 +46,6 @@ public class AppUtility {
         conf.setLocale(new Locale(lang.toLowerCase())); // API 17+ only.
         // Use conf.locale = new Locale(...) if targeting lower versions
         res.updateConfiguration(conf, dm);
-
     }
 
     public static void storeTime(Activity context , int selectedHour, int selectedMinute){
@@ -50,8 +54,6 @@ public class AppUtility {
         date.setHours(selectedHour);
         date.setMinutes(selectedMinute);
         AppPreference.writeDate(AppPreference.MY_PREVIOUS_DATE,date);
-
-
         // display message to inform the user
 
         int newHour ;
@@ -144,7 +146,6 @@ public class AppUtility {
 
         //n.defaults = Notification.DEFAULT_ALL;
 
-
         nm.notify(0,n);
     }
     public static void startScheduling(Context context ,Date myDate) {
@@ -163,9 +164,6 @@ public class AppUtility {
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 
-
-
-
         /*
         // Launch pending intent after
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -174,13 +172,10 @@ public class AppUtility {
         }
         */
 
-
-
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP
                 ,c.getTimeInMillis()
                 ,AlarmManager.INTERVAL_DAY
                 ,pendingIntent);
-
 
     }
     public static void stopScheduling(Context context){
@@ -205,8 +200,6 @@ public class AppUtility {
         */
         //String myCurrentDate = hour+min+second+"";
 
-
-
         return date ;
     }
 
@@ -225,7 +218,6 @@ public class AppUtility {
             toolbarTitle.setText(title);
         }
         */
-
     }
     public static void createToast(Context context , String title , int duration){
         if (toast != null){
@@ -235,5 +227,64 @@ public class AppUtility {
         toast.show();
 
     }
-}
+    public static void restartActivity(Activity activity,Class<?> cls){
+        activity.finish();
+        activity.overridePendingTransition(0,0);
+        activity.startActivity(new Intent(activity, cls));
+        activity.overridePendingTransition(0,0);
+    }
+    public static void shareApp(Activity activity) {
 
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=" + activity.getPackageName());
+        sendIntent.setType("text/plain");
+        activity.startActivity(sendIntent);
+    }
+
+    public static void followUsOnFacebook(Activity activity) {
+        Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+        String facebookUrl = getFacebookPageURL(activity);
+        facebookIntent.setData(Uri.parse(facebookUrl));
+        activity.startActivity(facebookIntent);
+    }
+
+    //method to get the right URL to use in the intent
+    public static String getFacebookPageURL(Context context) {
+        String FACEBOOK_URL = "https://www.facebook.com/flyladyarabia/?ref=br_rs";
+
+        String FACEBOOK_PAGE_ID = "FLY LADY Arabia";
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+            if (versionCode >= 3002850) { //newer versions of fb app
+                return "fb://facewebmodal/f?href=" + FACEBOOK_URL;
+            } else { //older versions of fb app
+                return "fb://page/" + FACEBOOK_PAGE_ID;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return FACEBOOK_URL; //normal web url
+        }
+    }
+
+    public static void rateApp(Activity activity){
+
+        try {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=" + activity.getPackageName()));
+            activity.startActivity(sendIntent);
+
+
+        } catch (android.content.ActivityNotFoundException e) {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=" + activity.getPackageName())));
+        }
+    }
+
+    public static String getVersionName() {
+
+        return BuildConfig.VERSION_NAME;
+    }
+}
