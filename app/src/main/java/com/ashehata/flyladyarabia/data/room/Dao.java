@@ -21,8 +21,6 @@ public interface Dao {
     @Query("SELECT * FROM notification")
     LiveData<List<NotificationEntity>> getAllNotification();
 
-
-
     @Query("DELETE FROM notification WHERE id = :userId  ")
     void delete(int userId);
 
@@ -40,7 +38,5 @@ public interface Dao {
 
     @Insert
     void insert(NotificationEntity notificationEntity);
-
-
 
 }

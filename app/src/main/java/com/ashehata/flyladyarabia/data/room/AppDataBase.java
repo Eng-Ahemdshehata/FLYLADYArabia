@@ -13,8 +13,6 @@ import com.ashehata.flyladyarabia.data.room.notificationTable.NotificationEntity
 import com.ashehata.flyladyarabia.data.room.roomTable.RoomEntity;
 
 import java.util.concurrent.Executors;
-
-
 // Adding 2 tables in DB
 @Database(entities = {RoomEntity.class, NotificationEntity.class } , version = 1 , exportSchema = false)
 public abstract  class AppDataBase extends RoomDatabase {
@@ -26,8 +24,6 @@ public abstract  class AppDataBase extends RoomDatabase {
 
     // Second Dao
    // public abstract Dao notificationDao();
-
-
 
     public static void clearDataBase(Context context){
         //INSTANCE = null ;

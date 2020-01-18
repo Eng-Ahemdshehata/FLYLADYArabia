@@ -40,8 +40,6 @@ public class NotificationEntity implements Serializable {
         this.image = image ;
     }
 
-
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private int id;
