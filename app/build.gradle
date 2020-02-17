@@ -13,7 +13,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -27,7 +28,6 @@ android {
         abi {
             enableSplit = true
         }
-
     }
 }
 
@@ -55,10 +55,7 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.5'
 
-
     implementation "android.arch.persistence.room:runtime:1.1.0"
 
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.0'
-
-
 }
