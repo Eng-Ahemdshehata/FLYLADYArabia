@@ -28,20 +28,12 @@ import java.util.List;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
-    public  Preference userNameET;
-
-    RecyclerView recyclerView ;
-    List<Integer> listIcons ;
-    IconAdapter.ListItemClickListener itemClickListener ;
-    GridLayoutManager gridLayoutManager ;
-    View badge ;
+    private Preference userNameET;
+    List<Integer> listIcons;
+    IconAdapter.ListItemClickListener itemClickListener;
+    View badge;
     RelativeLayout oldLayout;
-    int userIcon ;
-    TimePickerDialog mTimePicker;
-    Date myDate ;
-    int hour ;
-    int min ;
-
+    int userIcon;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -66,7 +58,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                     Log.v("myPreviousDate",myPreviousDate.getHours() +"");
 
                     if(myCurrentDate.getHours() < myPreviousDate.getHours()){
-
                         // show time picker dialog
                         createAlertDialog();
 
@@ -76,12 +67,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                             // show time picker dialog
                             createAlertDialog();
                         }else {
-
                             AppUtility.createToast(getContext()
                                     , getString(R.string.cant_change)
                                     , Toast.LENGTH_LONG);
-
-
                         }
 
                     }else
@@ -93,9 +81,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                     return true ;
                 }
             });
-
-
-
 
             findPreference("icon").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
@@ -110,15 +95,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
                     createAlertDialogIcon();
 
-                    //Log.v("notification_settings",AppPreference.readBoolean(getContext(),AppPreference.NOTIFICATION_KEY) +" ");
-                    //Log.v("notification_sound",AppPreference.readBoolean(getContext(),AppPreference.NOTIFICATION_SOUND_KEY) +" ");
-
-
-
                     return true;
                 }
             });
-
 
             if(AppPreference.readBoolean(getContext(),AppPreference.NOTIFICATION_KEY)){
                 findPreference(getString(R.string.notification_sound_key)).setEnabled(true);
@@ -147,14 +126,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             });
 
 
-
-             userNameET = findPreference("user_name") ;
-
+            userNameET = findPreference("user_name");
             userNameET.setSummary(AppPreference.readString(getContext()
                     ,AppPreference.USER_NAME
                     ,"My name"));
-
-
 
         }catch (Exception e){
 
@@ -163,9 +138,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     private void createAlertDialogIcon() {
         View view = View.inflate(getContext(),R.layout.recycler_view_user_icon,null);
-        recyclerView = view.findViewById(R.id.set_up_fragment_rv_icons);
+        RecyclerView recyclerView = view.findViewById(R.id.set_up_fragment_rv_icons);
         recyclerView.setHasFixedSize(true);
-        gridLayoutManager = new GridLayoutManager(getContext(),3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(new IconAdapter(getContext(),listIcons,itemClickListener));
 
@@ -192,18 +167,13 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 if(oldLayout !=null){
                     oldLayout.removeView(badge);
                 }
-
                 //RelativeLayout.LayoutParams layoutParams =new RelativeLayout.LayoutParams(getContext(),  );
                 newLayout.addView(badge,new ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT));
 
-
                 oldLayout = newLayout ;
                 userIcon = clickedItemResId ;
-
-
-
             }
         };
 
@@ -211,28 +181,28 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     private void createAlertDialog() {
 
-        myDate = AppPreference.readDate(getContext(),AppPreference.MY_PREVIOUS_DATE);
-        hour = myDate.getHours();
-        min = myDate.getMinutes();
+        Date myDate = AppPreference.readDate(getContext(), AppPreference.MY_PREVIOUS_DATE);
+        int hour = myDate.getHours();
+        int min = myDate.getMinutes();
         if(myDate == null){
             hour = 10 ;
             min = 30 ;
         }
-        mTimePicker = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+        TimePickerDialog mTimePicker = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
 
-                    AppUtility.storeTime(getActivity(),selectedHour,selectedMinute);
+                AppUtility.storeTime(getActivity(), selectedHour, selectedMinute);
                 Date date = new Date();
                 date.setHours(selectedHour);
                 date.setMinutes(selectedMinute);
                 date.setSeconds(0);
 
-                AppPreference.writeDate(AppPreference.MY_PREVIOUS_DATE,date);
+                AppPreference.writeDate(AppPreference.MY_PREVIOUS_DATE, date);
 
 
             }
-        },hour,min, false); //Yes 24 hour time
+        }, hour, min, false); //Yes 24 hour time
         mTimePicker.setTitle(getString(R.string.select_time));
         mTimePicker.show();
     }
@@ -248,6 +218,5 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         listIcons.add(R.drawable.ic_face_4);
         listIcons.add(R.drawable.ic_face_5);
         listIcons.add(R.drawable.ic_face_6);
-
     }
 }

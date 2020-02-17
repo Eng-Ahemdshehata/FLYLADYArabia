@@ -27,10 +27,10 @@ import java.util.Date;
  */
 public class SetUpStep3Fragment extends BaseFragment {
 
-    Button button ;
-    Date myDate ;
-    int hour ;
-    int min ;
+    private Button button ;
+    private Date myDate ;
+    private int hour ;
+    private int min ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,19 +40,14 @@ public class SetUpStep3Fragment extends BaseFragment {
         View view =inflater.inflate(R.layout.fragment_set_up_step3, container, false);
         setUpActivity();
 
-
         button = view.findViewById(R.id.set_up_3_fragment_btn_select);
 
         setTimeButton();
-
-
-
 
         return view;
     }
 
     private void setTimeButton() {
-
         AppPreference.readDate(getContext(),AppPreference.MY_PREVIOUS_DATE);
         if(myDate == null){
             hour = 10 ;
@@ -61,7 +56,6 @@ public class SetUpStep3Fragment extends BaseFragment {
             hour = myDate.getHours();
             min = myDate.getMinutes();
         }
-
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,16 +66,13 @@ public class SetUpStep3Fragment extends BaseFragment {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
 
-
                         AppUtility.storeTime(getActivity(),selectedHour,selectedMinute);
 
                         // write to AppPreference
                         AppPreference.writeBoolean(AppPreference.SKIP_KEY,true);
 
-
                         // intent to home activity
                         intentHomeActivity();
-
 
                         Date date = new Date();
                         date.setHours(selectedHour);
@@ -91,35 +82,24 @@ public class SetUpStep3Fragment extends BaseFragment {
                         // Start scheduling
                         AppUtility.startScheduling(getContext(),date);
 
-
-
                     }
                 }, hour,
                         min,
                         false); //Yes 24 hour time
                 mTimePicker.setTitle(getString(R.string.select_time));
                 mTimePicker.show();
-
             }
         });
-
-
-
     }
 
     private void intentHomeActivity(){
         Intent mainIntent = new Intent(getContext() , HomeActivity.class );
         startActivity(mainIntent);
         getActivity().finish();
-
     }
 
     @Override
     public void onBack() {
         AppUtility.ReplaceFragment(getFragmentManager(),new SetUpStep2Fragment(),R.id.splash_activity_fl_display);
-
-
     }
-
-
 }

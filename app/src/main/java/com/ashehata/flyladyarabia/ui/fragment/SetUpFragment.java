@@ -23,11 +23,10 @@ import com.ashehata.flyladyarabia.utility.AppUtility;
 
 public class SetUpFragment extends BaseFragment {
 
-    Button button ;
-    EditText editText ;
+    private Button button;
+    private EditText editText;
     public String userName;
     private TextView textView;
-
 
     @Nullable
     @Override
@@ -52,8 +51,6 @@ public class SetUpFragment extends BaseFragment {
         if(userName != null){
             editText.setText(userName);
         }
-
-
     }
 
     @Override
@@ -63,10 +60,7 @@ public class SetUpFragment extends BaseFragment {
         editText.requestFocus();
         InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.showSoftInput(editText,InputMethodManager.SHOW_IMPLICIT);
-
         setNextBtn();
-
-
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -95,16 +89,10 @@ public class SetUpFragment extends BaseFragment {
             AppUtility.ReplaceFragment(getFragmentManager(),new SetUpStep2Fragment(),R.id.splash_activity_fl_display);
             return true ;
         }
-
-
     }
 
     @Override
     public void onBack() {
         AppUtility.ReplaceFragment(getFragmentManager(),new SliderFragment(),R.id.splash_activity_fl_display);
-
-
     }
-
-
 }

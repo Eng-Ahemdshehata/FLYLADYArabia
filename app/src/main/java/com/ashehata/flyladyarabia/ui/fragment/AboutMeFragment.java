@@ -11,9 +11,6 @@ import android.view.ViewGroup;
 
 import com.ashehata.flyladyarabia.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class AboutMeFragment extends Fragment {
 
 
@@ -23,13 +20,6 @@ public class AboutMeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_about_me, container, false);
 
-
-
-
-
-
-
         return view ;
     }
-
 }

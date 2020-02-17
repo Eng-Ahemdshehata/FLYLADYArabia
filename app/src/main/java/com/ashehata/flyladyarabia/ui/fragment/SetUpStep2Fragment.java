@@ -23,14 +23,12 @@ import java.util.List;
 
 public class SetUpStep2Fragment extends BaseFragment {
 
-    Button button ;
-    RecyclerView recyclerView ;
-    List<Integer> listIcons ;
-    GridLayoutManager gridLayoutManager ;
-    View badge ;
-    RelativeLayout oldLayout;
-    int userIcon = 0 ;
-
+    private Button button ;
+    private List<Integer> listIcons ;
+    private View badge ;
+    private RelativeLayout oldLayout;
+    private int userIcon = 0 ;
+    private RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,11 +71,9 @@ public class SetUpStep2Fragment extends BaseFragment {
             AppUtility.ReplaceFragment(getFragmentManager(),new SetUpStep3Fragment(),R.id.splash_activity_fl_display);
             return true ;
         }
-
     }
 
     private void createIcons() {
-
         listIcons = new ArrayList<>();
         listIcons.add(R.drawable.ic_face_1);
         listIcons.add(R.drawable.ic_face_2);
@@ -85,28 +81,20 @@ public class SetUpStep2Fragment extends BaseFragment {
         listIcons.add(R.drawable.ic_face_4);
         listIcons.add(R.drawable.ic_face_5);
         listIcons.add(R.drawable.ic_face_6);
-
-
     }
 
     private void findViews(View view) {
         button = view.findViewById(R.id.set_up_2_fragment_btn_next);
         recyclerView = view.findViewById(R.id.set_up_fragment_rv_icons);
         badge = View.inflate(getContext(),R.layout.unread_message_layout,null);
-
         oldLayout = null ;
-
-
     }
 
     private void setData() {
-
-
         IconAdapter iconAdapter = new IconAdapter(getContext(), listIcons, new IconAdapter.ListItemClickListener() {
             @Override
             public void onListItemClick(int clickedItemIndex, View view) {
                 RelativeLayout newLayout = (RelativeLayout) view ;
-
 
                 if(oldLayout !=null){
                     oldLayout.removeView(badge);
@@ -117,28 +105,23 @@ public class SetUpStep2Fragment extends BaseFragment {
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT));
 
-
-
-                oldLayout = newLayout ;
-                userIcon = clickedItemIndex ;
+                oldLayout = newLayout;
+                userIcon = clickedItemIndex;
 
             }
         });
-        gridLayoutManager = new GridLayoutManager(getContext(),3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
 
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(iconAdapter);
-
-
     }
 
     @Override
     public void onBack() {
 
-        SetUpFragment setUpFragment = new  SetUpFragment() ;
+        SetUpFragment setUpFragment = new  SetUpFragment();
         setUpFragment.userName = AppPreference.readString(getContext(),AppPreference.USER_NAME,"");
         AppUtility.ReplaceFragment(getFragmentManager(),setUpFragment ,R.id.splash_activity_fl_display);
-
     }
 }

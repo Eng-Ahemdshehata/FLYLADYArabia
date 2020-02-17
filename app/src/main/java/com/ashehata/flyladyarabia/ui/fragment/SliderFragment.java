@@ -24,8 +24,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SliderFragment extends BaseFragment {
 
-    CarouselView carouselView;
-    int[] sampleImages = {R.drawable.slider1, R.drawable.slider2, R.drawable.slider3};
+    private CarouselView carouselView;
+    private int[] sampleImages = {R.drawable.slider1, R.drawable.slider2, R.drawable.slider3};
    // String [] description = {"اهتمي بنظافـة بيتـكـ","نظمـي وقتك كــل يومـ","حافظي علي نظافه منزلـك"};
 
     ViewListener viewListener = new ViewListener() {
@@ -39,10 +39,9 @@ public class SliderFragment extends BaseFragment {
         }
     };
 
+    private TextView textView ;
+    private Button btn_skip ;
 
-    TextView textView ;
-
-    Button btn_skip ;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,26 +64,22 @@ public class SliderFragment extends BaseFragment {
             }
         });
 
-
-
         return view ;
     }
-    private void slider(View view){
+    private void slider(View view) {
         carouselView = (CarouselView) view.findViewById(R.id.carouselView);
         carouselView.setPageCount(sampleImages.length);
         carouselView.setViewListener(viewListener);
-
     }
 
-    private void intentHomeActivity(){
+    private void intentHomeActivity() {
         Intent mainIntent = new Intent(getContext() , HomeActivity.class );
         startActivity(mainIntent);
         getActivity().finish();
-
     }
+
     @Override
     public void onBack() {
         getActivity().finish();
-
     }
 }

@@ -38,20 +38,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class NotificationFragment extends Fragment {
 
     private RecyclerView recyclerView;
-
     private SwipeRefreshLayout swipeRefreshRecyclerList;
     private NotificationAdapter mAdapter;
-    BottomNavigationView navView ;
-    View badge ;
-    TextView notificationCount ;
-    View alertView ;
-    CheckBox checkBox ;
-    LinearLayout missionLayout ;
+    BottomNavigationView navView;
+    View badge;
+    TextView notificationCount;
+    View alertView;
+    CheckBox checkBox;
+    LinearLayout missionLayout;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
 
@@ -60,7 +58,6 @@ public class NotificationFragment extends Fragment {
         return view;
 
     }
-
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -84,9 +81,8 @@ public class NotificationFragment extends Fragment {
                     @Override
                     public void run() {
 
-                        if (swipeRefreshRecyclerList.isRefreshing()){
+                        if (swipeRefreshRecyclerList.isRefreshing()) {
                             swipeRefreshRecyclerList.setRefreshing(false);
-
                         }
                     }
                 }, 1500);
@@ -97,7 +93,7 @@ public class NotificationFragment extends Fragment {
 
 
         // Set Background thread
-        if(savedInstanceState ==null){
+        if(savedInstanceState ==null) {
 
             Log.v("async","called");
             Async testAsync = new Async();
@@ -153,40 +149,11 @@ public class NotificationFragment extends Fragment {
                     showAlertDialog(id);
 
                 }
-
-                 /*
-                Executors.newSingleThreadExecutor().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        int position = mviewHolder.getAdapterPosition();
-                        NotificationEntity notificationEntity = mAdapter.getList().get(position);
-                         id = notificationEntity.getId() ;
-
-                        Snackbar.make(navView, "تمت المهمـة",Snackbar.LENGTH_LONG).setAction("تراجـع", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //mAdapter.clear();
-                                mAdapter.notifyDataSetChanged();
-
-                            }
-                        }).show();
-
-                    }
-
-                });
-
-                // delete item if user doesn't undo
-
-                    deleteItemFromDb();
-                    */
-
-
             }
         };
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
-
     }
 
     private void showAlertDialog(final int itemId) {
@@ -224,7 +191,6 @@ public class NotificationFragment extends Fragment {
 
                     }
                 });
-
     }
 
     private void setNotificationCount() {
@@ -249,16 +215,13 @@ public class NotificationFragment extends Fragment {
         itemView.addView(badge);
     }
 
-
     private void findViews(View view) {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         swipeRefreshRecyclerList = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_recycler_list);
         swipeRefreshRecyclerList.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
         missionLayout = view.findViewById(R.id.notification_fragment_ll_mission);
-
     }
-
 
     private void setAdapter() {
 
@@ -273,22 +236,14 @@ public class NotificationFragment extends Fragment {
         recyclerView.setClickable(true);
         recyclerView.setAdapter(mAdapter);
 
-
-
-
-
-
     }
 
     public class Async extends AsyncTask<Void , Void ,LiveData<List<NotificationEntity>>>{
-
-
         @Override
         protected LiveData<List<NotificationEntity>> doInBackground(Void... voids) {
 
             // Getting data from DB
             LiveData<List<NotificationEntity>> list = AppDataBase.getInstance(getContext()).dataDao().getAllNotification();
-
 
             return list;
         }
@@ -317,9 +272,7 @@ public class NotificationFragment extends Fragment {
                         missionLayout.setVisibility(View.GONE);
                         badge.setVisibility(View.VISIBLE);
                         notificationCount.setText(mAdapter.getItemCount()+"");
-
                     }
-
 
                     Log.v("live data","done");
 

@@ -11,12 +11,7 @@ import android.view.ViewGroup;
 
 import com.ashehata.flyladyarabia.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ChartFragment extends Fragment {
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,9 +19,6 @@ public class ChartFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_chart, container, false) ;
 
-
-
         return view ;
     }
-
 }

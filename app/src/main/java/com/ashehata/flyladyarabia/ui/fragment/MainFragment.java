@@ -29,11 +29,10 @@ import java.util.List;
 
 public class MainFragment extends Fragment implements RoomAdapter.ListItemClickListener {
 
-    LinearLayoutManager linearLayoutManager ;
-    RecyclerView recyclerView ;
-    ProgressBar progressBar ;
-    RoomAdapter roomAdapter ;
-    SwipeRefreshLayout swipeContainer;
+    private RecyclerView recyclerView;
+    private ProgressBar progressBar;
+    private RoomAdapter roomAdapter;
+    private SwipeRefreshLayout swipeContainer;
 
     @Nullable
     @Override
@@ -44,27 +43,18 @@ public class MainFragment extends Fragment implements RoomAdapter.ListItemClickL
         recyclerView = view.findViewById(R.id.main_fragment_rv_display);
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.main_fragment_swipeContainer);
 
-
         // Recycler view size
         recyclerView.setHasFixedSize(true);
 
         // How to display items in recycler view
-        linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,true);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,true));
 
         // Recycler view Adapter
         recyclerView.setAdapter(roomAdapter);
 
-        // Set divider for recycler view
-        //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-            //    linearLayoutManager.getOrientation());
-        //recyclerView.addItemDecoration(dividerItemDecoration);
-
-
         // Passing context to RoomEntity
-        RoomEntity roomEntity = new RoomEntity(getContext());
+        //RoomEntity roomEntity = new RoomEntity(getContext());
 
         // Swipe refresh layout
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -99,14 +89,8 @@ public class MainFragment extends Fragment implements RoomAdapter.ListItemClickL
         swipeContainer.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
 
 
-
-
-
-
         return view ;
     }
-
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -118,11 +102,8 @@ public class MainFragment extends Fragment implements RoomAdapter.ListItemClickL
             testAsync.execute();
         }
 
-
         super.onViewCreated(view, savedInstanceState);
     }
-
-
 
     private class TestAsync extends AsyncTask<Void, Void, LiveData<List<RoomEntity>> > {
 
@@ -150,7 +131,6 @@ public class MainFragment extends Fragment implements RoomAdapter.ListItemClickL
                     recyclerView.setAdapter(roomAdapter);
                 }
             });
-
         }
     }
 
